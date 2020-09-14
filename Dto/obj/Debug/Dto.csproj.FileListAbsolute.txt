@@ -1,0 +1,15 @@
+C:\finall_project\finalProject\Dto\bin\Debug\Dto.dll
+C:\finall_project\finalProject\Dto\bin\Debug\Dto.pdb
+C:\finall_project\finalProject\Dto\bin\Debug\Dal.dll
+C:\finall_project\finalProject\Dto\bin\Debug\Dal.pdb
+C:\finall_project\finalProject\Dto\obj\Debug\Dto.csprojAssemblyReference.cache
+C:\finall_project\finalProject\Dto\obj\Debug\Dto.csproj.CoreCompileInputs.cache
+C:\finall_project\finalProject\Dto\obj\Debug\Dto.csproj.CopyComplete
+C:\finall_project\finalProject\Dto\obj\Debug\Dto.dll
+C:\finall_project\finalProject\Dto\obj\Debug\Dto.pdb
+C:\finall_project\finalProject\Dto\bin\Debug\Dto.dll.config
+C:\finall_project\finalProject\Dto\bin\Debug\EntityFramework.dll
+C:\finall_project\finalProject\Dto\bin\Debug\EntityFramework.SqlServer.dll
+C:\finall_project\finalProject\Dto\bin\Debug\Dal.dll.config
+C:\finall_project\finalProject\Dto\bin\Debug\EntityFramework.xml
+C:\finall_project\finalProject\Dto\bin\Debug\EntityFramework.SqlServer.xml
