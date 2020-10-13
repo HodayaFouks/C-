@@ -84,3 +84,15 @@ C:\finall_project\finalProject\finalProject\obj\Debug\finalProject.csproj.CoreCo
 C:\finall_project\finalProject\finalProject\obj\Debug\finalProject.csproj.CopyComplete
 C:\finall_project\finalProject\finalProject\obj\Debug\finalProject.dll
 C:\finall_project\finalProject\finalProject\obj\Debug\finalProject.pdb
+C:\finall_project\finalProject\finalProject\bin\EntityFramework.dll
+C:\finall_project\finalProject\finalProject\bin\EntityFramework.SqlServer.dll
+C:\finall_project\finalProject\finalProject\bin\System.Web.Cors.dll
+C:\finall_project\finalProject\finalProject\bin\System.Web.Http.Cors.dll
+C:\finall_project\finalProject\finalProject\bin\Dal.dll
+C:\finall_project\finalProject\finalProject\bin\Bl.dll.config
+C:\finall_project\finalProject\finalProject\bin\Dto.dll.config
+C:\finall_project\finalProject\finalProject\bin\EntityFramework.xml
+C:\finall_project\finalProject\finalProject\bin\EntityFramework.SqlServer.xml
+C:\finall_project\finalProject\finalProject\bin\System.Web.Http.Cors.xml
+C:\finall_project\finalProject\finalProject\bin\Dal.pdb
+C:\finall_project\finalProject\finalProject\bin\Dal.dll.config

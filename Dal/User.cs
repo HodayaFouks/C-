@@ -17,16 +17,15 @@ namespace Dal
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public User()
         {
-            this.Users_Surveys = new HashSet<Users_Surveys>();
+            this.MailingList_Surveys = new HashSet<MailingList_Surveys>();
         }
     
         public int userId { get; set; }
-        public string userName { get; set; }
         public string password { get; set; }
         public string email { get; set; }
         public string contactsList { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Users_Surveys> Users_Surveys { get; set; }
+        public virtual ICollection<MailingList_Surveys> MailingList_Surveys { get; set; }
     }
 }

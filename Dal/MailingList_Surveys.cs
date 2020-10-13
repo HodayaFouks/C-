@@ -12,10 +12,12 @@ namespace Dal
     using System;
     using System.Collections.Generic;
     
-    public partial class Users_Surveys
+    public partial class MailingList_Surveys
     {
-        public int userId { get; set; }
+        public int mail_survId { get; set; }
+        public string email { get; set; }
         public int surveyId { get; set; }
+        public Nullable<int> userId { get; set; }
         public bool isAnswered { get; set; }
     
         public virtual Survey Survey { get; set; }

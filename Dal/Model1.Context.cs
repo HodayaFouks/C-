@@ -25,9 +25,9 @@ namespace Dal
             throw new UnintentionalCodeFirstException();
         }
     
+        public virtual DbSet<MailingList_Surveys> MailingList_Surveys { get; set; }
         public virtual DbSet<Survey> Surveys { get; set; }
         public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
         public virtual DbSet<User> Users { get; set; }
-        public virtual DbSet<Users_Surveys> Users_Surveys { get; set; }
     }
 }

@@ -1,16 +1,18 @@
 ﻿using System;
+using Dal;
 using Dto;
 
 namespace Bl
 {
-    public class Userbl
+    public class UserBl
     {
         public static UserDTO Login(UserDTO user)
         {
-            Dal.User u = Dto.UserDTO.ToDal(user);
-            Dal.User u1=  Dal.Userdal.Login(u);
-            Dto.UserDTO u2=new Dto.UserDTO(u1);
-            return u2;
+            User u = UserDTO.ToDal(user);
+            u=UserDal.Login(u);
+            UserDTO u1 = new UserDTO(u);
+            return u1;
+            
         }
     }
 }

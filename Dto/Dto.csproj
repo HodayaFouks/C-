@@ -53,7 +53,9 @@
   <ItemGroup>
     <Compile Include="Class1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SurveyDTO.cs" />
     <Compile Include="UserDTO.cs" />
+    <Compile Include="MailingList_SurveysDTO.cs" />
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

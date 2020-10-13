@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dto;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -8,13 +9,17 @@ using System.Web.Http.Cors;
 
 namespace finalProject.Controllers
 {
-    [RoutePrefix("api/users")]
+    [RoutePrefix("api/user")]
     [EnableCors(origins: "*",headers: "*", methods: "*")]
     public class UserController : ApiController
     {
-        public IHttpActionResult Login([FromBody] Dto.UserDTO user)
+        [Route ("Login")]
+        public IHttpActionResult Login([FromBody] UserDTO user)
         {
-          Dto.UserDTO u=  Bl.Userbl.Login(user);
+            UserDTO u=  Bl.UserBl.Login(user);
+            if (u != null)
+                return Ok();
+            return BadRequest();
         }
     }
 }
