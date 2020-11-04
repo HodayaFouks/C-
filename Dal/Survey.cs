@@ -18,6 +18,7 @@ namespace Dal
         public Survey()
         {
             this.MailingList_Surveys = new HashSet<MailingList_Surveys>();
+            this.Questions = new HashSet<Question>();
         }
     
         public int id { get; set; }
@@ -25,11 +26,13 @@ namespace Dal
         public string subject { get; set; }
         public Nullable<System.DateTime> createDate { get; set; }
         public string surveyDirector { get; set; }
-        public System.DateTime timeStart { get; set; }
-        public System.DateTime timeEnd { get; set; }
-        public string surveyFile { get; set; }
+        public Nullable<System.DateTime> timeStart { get; set; }
+        public Nullable<System.DateTime> timeEnd { get; set; }
+        public Nullable<bool> showResult { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<MailingList_Surveys> MailingList_Surveys { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Question> Questions { get; set; }
     }
 }

@@ -51,8 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnswersBl.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ContactsBl.cs" />
+    <Compile Include="GroupsBl.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionsBl.cs" />
     <Compile Include="SurveyBl.cs" />
     <Compile Include="UserBl.cs" />
     <Compile Include="MailingList_SurveysBl.cs" />

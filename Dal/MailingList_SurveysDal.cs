@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Dal
 {
-    class MailingList_SurveysDal
+    public class MailingList_SurveysDal
     {
+
     }
 }

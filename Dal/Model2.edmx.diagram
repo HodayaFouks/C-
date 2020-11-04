@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="64a6ecc1667740e1a3de07972c26be25" Name="Diagram1">
+        <EntityTypeShape EntityType="FinalProjectModel1.Answer" Width="1.5" PointX="8.25" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel1.Contact" Width="1.5" PointX="3" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel1.Group" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel1.MailingList_Surveys" Width="1.5" PointX="6" PointY="3.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel1.Question" Width="1.5" PointX="6" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel1.Survey" Width="1.5" PointX="3.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel1.sysdiagram" Width="1.5" PointX="0.75" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="FinalProjectModel1.User" Width="1.5" PointX="0.75" PointY="3.5" IsExpanded="true" />
+        <AssociationConnector Association="FinalProjectModel1.FK_Answers_Questions" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel1.FK_Contacts_Groups" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel1.FK_Contacts_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel1.FK_MailingList_Surveys_Surveys" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel1.FK_MailingList_Surveys_Users" ManuallyRouted="false" />
+        <AssociationConnector Association="FinalProjectModel1.FK_Questions_Surveys" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

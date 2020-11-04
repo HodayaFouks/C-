@@ -51,8 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnswersDTO.cs" />
     <Compile Include="Class1.cs" />
+    <Compile Include="ContactsDTO.cs" />
+    <Compile Include="GroupsDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="QuestionsDTO.cs" />
     <Compile Include="SurveyDTO.cs" />
     <Compile Include="UserDTO.cs" />
     <Compile Include="MailingList_SurveysDTO.cs" />

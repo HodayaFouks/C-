@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Bl
 {
-    class MailingList_SurveysBl
+    public class MailingList_SurveysBl
     {
     }
 }

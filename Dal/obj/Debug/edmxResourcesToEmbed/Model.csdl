@@ -1,0 +1,265 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="FinalProjectModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="SurveryForUser_Result">
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createDate" Type="DateTime" />
+    <Property Name="surveyDirector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="timeStart" Type="DateTime" Nullable="false" />
+    <Property Name="timeEnd" Type="DateTime" Nullable="false" />
+  </ComplexType>
+  <EntityType Name="Answer">
+    <Key>
+      <PropertyRef Name="answerId" />
+    </Key>
+    <Property Name="questionId" Type="Int32" Nullable="false" />
+    <Property Name="answerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="theAnswer" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="counter" Type="Int32" Nullable="false" />
+    <Property Name="isRequired" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Question" Relationship="Self.FK_Answers_Questions" FromRole="Answers" ToRole="Questions" />
+  </EntityType>
+  <EntityType Name="Contact">
+    <Key>
+      <PropertyRef Name="memberId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" />
+    <Property Name="memberId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="memberName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="memberEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="groupId" Type="Int32" />
+    <NavigationProperty Name="Group" Relationship="Self.FK_Contacts_Groups" FromRole="Contacts" ToRole="Groups" />
+    <NavigationProperty Name="User" Relationship="Self.FK_Contacts_Users" FromRole="Contacts" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Group">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="groupName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Contacts" Relationship="Self.FK_Contacts_Groups" FromRole="Groups" ToRole="Contacts" />
+  </EntityType>
+  <EntityType Name="MailingList_Surveys">
+    <Key>
+      <PropertyRef Name="mail_survId" />
+    </Key>
+    <Property Name="mail_survId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="surveyId" Type="Int32" Nullable="false" />
+    <Property Name="userId" Type="Int32" />
+    <Property Name="isAnswered" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_MailingList_Surveys_Surveys" FromRole="MailingList_Surveys" ToRole="Surveys" />
+    <NavigationProperty Name="User" Relationship="Self.FK_MailingList_Surveys_Users" FromRole="MailingList_Surveys" ToRole="Users" />
+  </EntityType>
+  <EntityType Name="Question">
+    <Key>
+      <PropertyRef Name="questionId" />
+    </Key>
+    <Property Name="surveyId" Type="Int32" Nullable="false" />
+    <Property Name="questionId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="theQuestion" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Answers" Relationship="Self.FK_Answers_Questions" FromRole="Questions" ToRole="Answers" />
+    <NavigationProperty Name="Survey" Relationship="Self.FK_Questions_Surveys" FromRole="Questions" ToRole="Surveys" />
+  </EntityType>
+  <EntityType Name="Survey">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="subject" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="createDate" Type="DateTime" Precision="3" />
+    <Property Name="surveyDirector" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="timeStart" Type="DateTime" Precision="3" />
+    <Property Name="timeEnd" Type="DateTime" Precision="3" />
+    <Property Name="showResult" Type="Boolean" />
+    <NavigationProperty Name="MailingList_Surveys" Relationship="Self.FK_MailingList_Surveys_Surveys" FromRole="Surveys" ToRole="MailingList_Surveys" />
+    <NavigationProperty Name="Questions" Relationship="Self.FK_Questions_Surveys" FromRole="Surveys" ToRole="Questions" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="userId" />
+    </Key>
+    <Property Name="userId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="userName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <NavigationProperty Name="Contacts" Relationship="Self.FK_Contacts_Users" FromRole="Users" ToRole="Contacts" />
+    <NavigationProperty Name="MailingList_Surveys" Relationship="Self.FK_MailingList_Surveys_Users" FromRole="Users" ToRole="MailingList_Surveys" />
+  </EntityType>
+  <Association Name="FK_Answers_Questions">
+    <End Role="Questions" Type="Self.Question" Multiplicity="1" />
+    <End Role="Answers" Type="Self.Answer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Questions">
+        <PropertyRef Name="questionId" />
+      </Principal>
+      <Dependent Role="Answers">
+        <PropertyRef Name="questionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contacts_Groups">
+    <End Role="Groups" Type="Self.Group" Multiplicity="0..1" />
+    <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Groups">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Contacts">
+        <PropertyRef Name="groupId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Contacts_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="1" />
+    <End Role="Contacts" Type="Self.Contact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="Contacts">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MailingList_Surveys_Surveys">
+    <End Role="Surveys" Type="Self.Survey" Multiplicity="1" />
+    <End Role="MailingList_Surveys" Type="Self.MailingList_Surveys" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Surveys">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="MailingList_Surveys">
+        <PropertyRef Name="surveyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_MailingList_Surveys_Users">
+    <End Role="Users" Type="Self.User" Multiplicity="0..1" />
+    <End Role="MailingList_Surveys" Type="Self.MailingList_Surveys" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="userId" />
+      </Principal>
+      <Dependent Role="MailingList_Surveys">
+        <PropertyRef Name="userId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Questions_Surveys">
+    <End Role="Surveys" Type="Self.Survey" Multiplicity="1" />
+    <End Role="Questions" Type="Self.Question" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Surveys">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="Questions">
+        <PropertyRef Name="surveyId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="FinalProjectEntities2" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Answers" EntityType="Self.Answer" />
+    <EntitySet Name="Contacts" EntityType="Self.Contact" />
+    <EntitySet Name="Groups" EntityType="Self.Group" />
+    <EntitySet Name="MailingList_Surveys" EntityType="Self.MailingList_Surveys" />
+    <EntitySet Name="Questions" EntityType="Self.Question" />
+    <EntitySet Name="Surveys" EntityType="Self.Survey" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Users" EntityType="Self.User" />
+    <AssociationSet Name="FK_Answers_Questions" Association="Self.FK_Answers_Questions">
+      <End Role="Questions" EntitySet="Questions" />
+      <End Role="Answers" EntitySet="Answers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacts_Groups" Association="Self.FK_Contacts_Groups">
+      <End Role="Groups" EntitySet="Groups" />
+      <End Role="Contacts" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Contacts_Users" Association="Self.FK_Contacts_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="Contacts" EntitySet="Contacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MailingList_Surveys_Surveys" Association="Self.FK_MailingList_Surveys_Surveys">
+      <End Role="Surveys" EntitySet="Surveys" />
+      <End Role="MailingList_Surveys" EntitySet="MailingList_Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_MailingList_Surveys_Users" Association="Self.FK_MailingList_Surveys_Users">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="MailingList_Surveys" EntitySet="MailingList_Surveys" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Questions_Surveys" Association="Self.FK_Questions_Surveys">
+      <End Role="Surveys" EntitySet="Surveys" />
+      <End Role="Questions" EntitySet="Questions" />
+    </AssociationSet>
+    <FunctionImport Name="SurveryForUser" IsComposable="true" ReturnType="Collection(FinalProjectModel.SurveryForUser_Result)">
+      <Parameter Name="userId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(FinalProjectModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(FinalProjectModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="spGetContactGroupByUserId" ReturnType="Collection(FinalProjectModel.spGetContactGroupByUserId_Result)">
+      <Parameter Name="userId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="spGetQAndABySurveyId" ReturnType="Collection(FinalProjectModel.spGetQAndABySurveyId_Result)">
+      <Parameter Name="surveyId" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="spGetContactGroupByUserId_Result">
+    <Property Type="String" Name="groupName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="memberName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="memberEmail" Nullable="false" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="spGetQAndABySurveyId_Result">
+    <Property Type="String" Name="theQuestion" Nullable="false" />
+    <Property Type="String" Name="theAnswer" Nullable="false" />
+  </ComplexType>
+</Schema>
